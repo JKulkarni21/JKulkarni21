@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Find a job & grow your career">
+        <lightning-layout>
+            <lightning-layout-item size="8" padding="around-small">
+                    <div class="slds-m-around_medium" if:true={InputFieldData}>
+                        
+                        <template id='' for:each={InputFieldData} for:item="acc">
+                            <lightning-input type={acc.type} key={acc.name} name={acc.name} label={acc.label} onchange={acc.onchange} placeholder={acc.placeholder} accept=".xlsx, .xls, .csv, .png, .doc, .docx, .pdf" ></lightning-input>
+                        </template>
+                    </div>
+                    <template if:true={fileData}>
+                        <p>{fileData.filename}</p>
+                    </template>
+                    <lightning-card title="Upload Resume" icon-name="custom:custom14">
+                </lightning-card>
+                    <lightning-button size="5" label="Create Account" onclick={CreateAccount}  variant="brand" class="slds-m-left_x-small"></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item size="8" padding="around-small"></lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+    
+</template>
